@@ -156,3 +156,23 @@ emp_no, emp_nm, SEX_CD, dept_cd
 FROM TB_EMP
 WHERE EMP_NM LIKE '이%'
 AND SEX_CD <> 1;  --남자가 아닌 사원추출 != 와 같은 의미!! 
+
+-- AND와 OR의 우선순위
+-- 성이 "이" + 4번 혹은 6번 + 수원시 또는 성남시 사는 사람으로 작동됨.
+SELECT
+emp_no, emp_nm, addr, dept_cd
+FROM tb_emp
+WHERE emp_nm LIKE '이%'
+AND dept_cd IN ('100004','100006')
+--AND addr LIKE '%수원시%' OR addr LIKE '%성남시%'
+AND (addr LIKE '%수원시%' OR addr LIKE '%성남시%');
+
+
+-- 위와 반대인 부정문 ( ! == NOT )
+SELECT
+emp_no, emp_nm, addr, dept_cd
+FROM tb_emp
+WHERE emp_nm LIKE '이%'
+AND dept_cd IN ('100004','100006')
+--AND addr LIKE '%수원시%' OR addr LIKE '%성남시%'
+AND NOT (addr LIKE '%수원시%' OR addr LIKE '%성남시%');
