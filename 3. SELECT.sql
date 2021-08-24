@@ -52,7 +52,6 @@ FROM DUAL;
 
 --WHERE 조건절: 조회결과 행을 제한하는 조건절
 SELECT * FROM TB_EMP;
-
 SELECT
     EMP_NO, emp_nm,ADDR
 FROM TB_EMP

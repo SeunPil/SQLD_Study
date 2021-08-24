@@ -45,7 +45,7 @@ CREATE TABLE VARCHAR_COMPARE (
     char_4 CHAR(4),
     varchar_6 VARCHAR2(6)
 );
--- Varchar2는 공백은 무시한다.
+-- Varchar2는 공백포함 6글자인 SQLD와 4글자 SQLD를 다르다고 판단
 INSERT INTO varchar_compare VALUES ('101', 'SQLD', 'SQLD  ');
 INSERT INTO varchar_compare VALUES ('102', 'SQLD', 'SQLA  ');
 COMMIT;
@@ -242,3 +242,8 @@ FROM dual;
 SELECT 
     COALESCE(7000, NULL, NULL, 8000)
 FROM dual;
+
+SELECT
+--emp_nm
+COUNT(emp_no) AS snt
+from tb_emp;
