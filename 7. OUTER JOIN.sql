@@ -101,3 +101,21 @@ FROM tb_emp A
 FULL OUTER JOIN tb_dept B
 ON A.dept_cd = B.dept_cd
 ;
+
+-- SELF JOIN
+-- 자기 자신을 JOIN한다는 개념
+-- 자기 테이블의 컬럼들을 매칭한다
+SELECT
+A.emp_no, A.emp_nm, A.direct_manager_emp_no, B.emp_no
+-- A는 사원정보 B는 상사정보
+FROM tb_emp A, tb_emp B
+WHERE A.direct_manager_emp_no = B.emp_no;
+
+DELETE 
+FROM tb_dept 
+WHERE dept_cd IN ('100014','100015');
+DELETE
+FROM tb_emp 
+WHERE emp_no IN ('1000000041,1000000042','100000043','100000044','100000045');
+
+COMMIT;
